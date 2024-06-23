@@ -1,5 +1,5 @@
 import { Container, Text, VStack, Button, Box, Image } from "@chakra-ui/react";
-import { FaTshirt, FaEye, FaMoneyBillWave } from "react-icons/fa";
+import { FaTshirt, FaEye, FaMoneyBillWave, FaMagic, FaUsers, FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,6 +22,18 @@ const Index = () => {
     navigate("/monetization");
   };
 
+  const handleAIEditingClick = () => {
+    navigate("/ai-editing");
+  };
+
+  const handleCollaborationClick = () => {
+    navigate("/collaboration");
+  };
+
+  const handleDiscoveryClick = () => {
+    navigate("/discovery");
+  };
+
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
@@ -34,6 +46,15 @@ const Index = () => {
         </Button>
         <Button leftIcon={<FaMoneyBillWave />} colorScheme="green" onClick={handleMonetizationClick}>
           Monetization Options
+        </Button>
+        <Button leftIcon={<FaMagic />} colorScheme="blue" onClick={handleAIEditingClick}>
+          AI Editing Tools
+        </Button>
+        <Button leftIcon={<FaUsers />} colorScheme="orange" onClick={handleCollaborationClick}>
+          Collaboration Features
+        </Button>
+        <Button leftIcon={<FaSearch />} colorScheme="red" onClick={handleDiscoveryClick}>
+          Discovery and Recommendations
         </Button>
         
         {showTryOn && (
