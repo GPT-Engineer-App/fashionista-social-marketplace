@@ -1,10 +1,12 @@
 import { Container, Text, VStack, Button, Box, Image } from "@chakra-ui/react";
-import { FaTshirt, FaEye } from "react-icons/fa";
+import { FaTshirt, FaEye, FaMoneyBillWave } from "react-icons/fa";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const [showTryOn, setShowTryOn] = useState(false);
   const [showFashionShow, setShowFashionShow] = useState(false);
+  const navigate = useNavigate();
 
   const handleTryOnClick = () => {
     setShowTryOn(true);
@@ -14,6 +16,10 @@ const Index = () => {
   const handleFashionShowClick = () => {
     setShowFashionShow(true);
     setShowTryOn(false);
+  };
+
+  const handleMonetizationClick = () => {
+    navigate("/monetization");
   };
 
   return (
@@ -26,6 +32,10 @@ const Index = () => {
         <Button leftIcon={<FaEye />} colorScheme="purple" onClick={handleFashionShowClick}>
           AR Fashion Show
         </Button>
+        <Button leftIcon={<FaMoneyBillWave />} colorScheme="green" onClick={handleMonetizationClick}>
+          Monetization Options
+        </Button>
+        
         {showTryOn && (
           <Box mt={4}>
             <Text fontSize="xl">Virtual Try-On Feature Coming Soon!</Text>
